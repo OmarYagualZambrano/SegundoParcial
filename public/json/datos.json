@@ -1,0 +1,921 @@
+{
+  "usuario": [
+    {
+      "nombre": "Pedro",
+      "apellido": "Mendoza",
+      "cedula": "0976543218",
+      "usuario": "carlosm",
+      "tipo_usuario": "ciudadano",
+      "genero": "masculino",
+      "direccion": "Av. Central 789",
+      "contrasenia": "carMen1",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "nombre": "María",
+      "apellido": "López",
+      "cedula": "0965432109",
+      "usuario": "maryl",
+      "tipo_usuario": "funcionario",
+      "genero": "femenino",
+      "direccion": "Calle 10 #20-30",
+      "contrasenia": "mlopez12"
+    },
+    {
+      "id": "5",
+      "nombre": "Juan",
+      "apellido": "Pérez",
+      "cedula": "0956789012",
+      "usuario": "juanpz",
+      "tipo_usuario": "ciudadano",
+      "genero": "masculino",
+      "direccion": "Av. Norte 567",
+      "contrasenia": "jperez2023"
+    },
+    {
+      "id": "6",
+      "nombre": "Lucía",
+      "apellido": "Fernández",
+      "cedula": "0945678901",
+      "usuario": "luciaf",
+      "tipo_usuario": "ciudadano",
+      "genero": "femenino",
+      "direccion": "Calle 5 #15-25",
+      "contrasenia": "lufer2023"
+    },
+    {
+      "id": "7",
+      "nombre": "Pedro",
+      "apellido": "González",
+      "cedula": "0934567890",
+      "usuario": "pedrog",
+      "tipo_usuario": "funcionario",
+      "genero": "masculino",
+      "direccion": "Av. Sur 321",
+      "contrasenia": "pgonzalez"
+    },
+    {
+      "id": "8",
+      "nombre": "Sofía",
+      "apellido": "Rodríguez",
+      "cedula": "0923456789",
+      "usuario": "sofiar",
+      "tipo_usuario": "ciudadano",
+      "genero": "femenino",
+      "direccion": "Calle 8 #12-34",
+      "contrasenia": "srodriguez"
+    },
+    {
+      "id": "9",
+      "nombre": "Diego",
+      "apellido": "Martínez",
+      "cedula": "0912345098",
+      "usuario": "diegom",
+      "tipo_usuario": "funcionario",
+      "genero": "masculino",
+      "direccion": "Av. Este 654",
+      "contrasenia": "dm2023"
+    },
+    {
+      "id": "10",
+      "nombre": "Valeria",
+      "apellido": "Vargas",
+      "cedula": "0998765432",
+      "usuario": "valeriav",
+      "tipo_usuario": "ciudadano",
+      "genero": "femenino",
+      "direccion": "Calle 3 #7-19",
+      "contrasenia": "vvargas12"
+    },
+    {
+      "id": "f37c",
+      "nombre": "maria ",
+      "apellido": "zambrano ",
+      "cedula": "0956451254",
+      "usuario": "mafer",
+      "tipo_usuario": "funcionario",
+      "genero": "femenino",
+      "direccion": "bastion",
+      "contrasenia": "maria1"
+    },
+    {
+      "id": "4459",
+      "nombre": "xd",
+      "apellido": "xd",
+      "cedula": "xd",
+      "usuario": "xd",
+      "tipo_usuario": "funcionario",
+      "genero": "masculino",
+      "direccion": "xdd",
+      "contrasenia": "xd"
+    },
+    {
+      "id": "4e9d",
+      "nombre": "xd2",
+      "apellido": "xd2",
+      "cedula": "xd",
+      "usuario": "xd",
+      "tipo_usuario": "ciudadano",
+      "genero": "masculino",
+      "direccion": "xd",
+      "contrasenia": "xd2"
+    }
+  ],
+  "reportes": [
+    {
+      "titulo": "Alumbrado público dañado",
+      "descripcion": "El poste de luz frente a la escuela no enciende desde hace 3 días.",
+      "categoria": "Alumbrado",
+      "direccion": "Av. Siempre Viva y Calle 10",
+      "estado": "Pendiente",
+      "imagen": null,
+      "id": "111",
+      "fecha": "Sat May 24 2025 01:55:37 GMT-0500 (Ecuador Time)"
+    },
+    {
+      "titulo": "Calle dañada",
+      "descripcion": "Hay un bache grande en la esquina del parque. Varios autos ya han tenido daños.",
+      "categoria": "Calle dañada",
+      "direccion": "Calle Bolívar y Av. Central",
+      "estado": "Pendiente",
+      "imagen": null,
+      "id": "2",
+      "fecha": "Sat May 24 2025 01:58:24 GMT-0500 (Ecuador Time)"
+    },
+    {
+      "id": "3",
+      "titulo": "Basura acumulada",
+      "descripcion": "Desde hace una semana no pasa el recolector y hay mucha basura en la esquina.",
+      "categoria": "Basura",
+      "direccion": "Pasaje 3 y Callejón Los Cedros",
+      "fecha": "08-30-2025",
+      "estado": "Resuelto",
+      "imagen": "https://example.com/img/basura1.jpg",
+      "usuarioId": 103
+    },
+    {
+      "id": "4",
+      "titulo": "Semáforo dañado",
+      "descripcion": "El semáforo de la avenida principal está apagado desde ayer.",
+      "categoria": "Tráfico",
+      "direccion": "Av. Principal y Calle 5",
+      "fecha": "08-30-2025",
+      "estado": "Pendiente",
+      "imagen": "https://example.com/img/semaforo.jpg",
+      "usuarioId": 104
+    },
+    {
+      "id": "5",
+      "titulo": "Grafitis ofensivos",
+      "descripcion": "Aparecieron grafitis ofensivos en la fachada de la casa comunal.",
+      "categoria": "Vandalismo",
+      "direccion": "Callejón Sin Nombre 12",
+      "fecha": "08-5-2025",
+      "estado": "En revisión",
+      "imagen": "https://example.com/img/grafiti.jpg",
+      "usuarioId": 105
+    },
+    {
+      "titulo": "Árbol caído bloqueando calle",
+      "descripcion": "Un árbol cayó anoche y está bloqueando el paso de vehículos",
+      "categoria": "Obstáculo",
+      "direccion": "Calle Manzanares y Río Verde",
+      "estado": "resuelto",
+      "imagen": null,
+      "id": "6",
+      "fecha": "Sat May 24 2025 01:42:55 GMT-0500 (Ecuador Time)"
+    }
+  ],
+  "foro": [
+    {
+      "titulo": "Titulo11",
+      "contenido": "algo1",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "titulo": "Titulo2",
+      "contenido": "algo2"
+    },
+    {
+      "id": "3",
+      "titulo": "Titulo3",
+      "contenido": "algo3"
+    },
+    {
+      "id": "6",
+      "titulo": "titulo6",
+      "contenido": "algo6"
+    },
+    {
+      "id": "5",
+      "titulo": "titulo5",
+      "contenido": "algo5"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "1",
+      "name": "Bache",
+      "description": "Hoyo o irregularidad en el pavimento de calles o carreteras.",
+      "icon": "directions_car",
+      "color": "#757575"
+    },
+    {
+      "id": "2",
+      "name": "Vandalismo",
+      "description": "Daño o destrucción intencionada de propiedad pública o privada.",
+      "icon": "gavel",
+      "color": "#F44336"
+    },
+    {
+      "id": "3",
+      "name": "Basura Acumulada",
+      "description": "Residuos sólidos acumulados en lugares no designados.",
+      "icon": "delete_sweep",
+      "color": "#4CAF50"
+    },
+    {
+      "id": "4",
+      "name": "Alumbrado Dañado",
+      "description": "Farolas o luces públicas que no funcionan correctamente.",
+      "icon": "lightbulb",
+      "color": "#FFC107"
+    }
+  ],
+  "zonas": [
+    {
+      "id": "2",
+      "nombre": "23 de nov frente a escuela Jesús del Gran Poder",
+      "ciudad": "Cuenca",
+      "ubicacion": "-2.8974, -79.0045",
+      "imagenUrl": "https://1.bp.blogspot.com/-oVdqdVx5nXQ/V27y3Pl7ebI/AAAAAAAAANI/U4pF25x4HrA6xyPIjKfM5_3gQrs7LJ4hgCLcB/s1600/Machala.jpg"
+    },
+    {
+      "id": "12",
+      "nombre": "samanes",
+      "ciudad": "Guayaquil",
+      "ubicacion": "-2.1900, -79.8875",
+      "imagenUrl": "https://primiciadiario.com/wp-content/uploads/2021/01/guayaquil-coronavirus-estado.jpeg"
+    },
+    {
+      "id": "121492",
+      "nombre": "barrio Buena esperanza",
+      "ciudad": "Otavalo",
+      "ubicacion": "0.2303, -78.2625",
+      "imagenUrl": "https://1.bp.blogspot.com/-P8PbEsxyjpY/XQfyGUHeCHI/AAAAAAAAX70/Q8knqhtQ2RIWbUEOutVnPr7zuPpsjoemQCLcBGAs/s1600/Guaranda.jpg"
+    },
+    {
+      "id": "248764",
+      "nombre": "Rosita Nelli barrio los chillos frente al tuti a lado de panaderia Rico Pan",
+      "ciudad": "Sangolquí",
+      "ubicacion": "-0.3344, -78.4475",
+      "imagenUrl": "https://i.ytimg.com/vi/osxBw3we974/maxresdefault.jpg"
+    },
+    {
+      "id": "371504",
+      "nombre": "parque Zoila Medina barrio 10 de agosto",
+      "ciudad": "Pasaje",
+      "ubicacion": "-3.3269, -79.8049",
+      "imagenUrl": "https://img.goraymi.com/2016/08/10/7dde1f865c1b2121412ab36bb8834271_lg.jpg"
+    },
+    {
+      "id": "666375",
+      "nombre": "barrio Maria Auxiliadora, calle federico Poma",
+      "ciudad": "La Troncal",
+      "ubicacion": "-2.4000, -79.3300",
+      "imagenUrl": "https://i.ytimg.com/vi/S0pywGiP-5U/maxresdefault.jpg"
+    },
+    {
+      "id": "880205",
+      "nombre": "Barrio Divino niño Jesus",
+      "ciudad": "Santa Rosa",
+      "ubicacion": "-3.4522, -79.9617",
+      "imagenUrl": "https://i.ytimg.com/vi/_qbUpe3fmdI/maxresdefault.jpg"
+    },
+    {
+      "id": "876128",
+      "nombre": "barrio nuevo horizonte",
+      "ciudad": "Saquisilí",
+      "ubicacion": "-0.8300, -78.6700",
+      "imagenUrl": "https://www.shutterstock.com/image-photo/saquisili-cotopaxi-ecuador-june-10-260nw-2481566155.jpg"
+    }
+  ],
+  "ciudades": [
+    {
+      "city": "Guayaquil",
+      "lat": "-2.1900",
+      "lng": "-79.8875",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Guayas",
+      "capital": "admin",
+      "population": "2650288",
+      "population_proper": "2650288",
+      "id": "3829"
+    },
+    {
+      "city": "Quito",
+      "lat": "-0.2200",
+      "lng": "-78.5125",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Pichincha",
+      "capital": "primary",
+      "population": "1763275",
+      "population_proper": "1763275",
+      "id": "0df6"
+    },
+    {
+      "city": "Cuenca",
+      "lat": "-2.8974",
+      "lng": "-79.0045",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Azuay",
+      "capital": "admin",
+      "population": "361524",
+      "population_proper": "361524",
+      "id": "bc92"
+    },
+    {
+      "city": "Santo Domingo de los Colorados",
+      "lat": "-0.2542",
+      "lng": "-79.1719",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Santo Domingo de los Tsáchilas",
+      "capital": "admin",
+      "population": "334826",
+      "population_proper": "334826",
+      "id": "e7b5"
+    },
+    {
+      "city": "Eloy Alfaro",
+      "lat": "-2.1733",
+      "lng": "-79.8311",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Guayas",
+      "capital": "",
+      "population": "295211",
+      "population_proper": "295211",
+      "id": "7b6b"
+    },
+    {
+      "city": "Machala",
+      "lat": "-3.2667",
+      "lng": "-79.9667",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "El Oro",
+      "capital": "admin",
+      "population": "288072",
+      "population_proper": "288072",
+      "id": "4484"
+    },
+    {
+      "city": "Manta",
+      "lat": "-0.9500",
+      "lng": "-80.7162",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Manabí",
+      "capital": "",
+      "population": "258697",
+      "population_proper": "258697",
+      "id": "92f8"
+    },
+    {
+      "city": "Portoviejo",
+      "lat": "-1.0561",
+      "lng": "-80.4553",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Manabí",
+      "capital": "admin",
+      "population": "244129",
+      "population_proper": "244129",
+      "id": "2d48"
+    },
+    {
+      "city": "Loja",
+      "lat": "-3.9833",
+      "lng": "-79.2000",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Loja",
+      "capital": "admin",
+      "population": "203496",
+      "population_proper": "203496",
+      "id": "341b"
+    },
+    {
+      "city": "Quevedo",
+      "lat": "-1.0333",
+      "lng": "-79.4500",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Los Ríos",
+      "capital": "",
+      "population": "177792",
+      "population_proper": "177792",
+      "id": "8447"
+    },
+    {
+      "city": "Ambato",
+      "lat": "-1.2417",
+      "lng": "-78.6197",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Tungurahua",
+      "capital": "admin",
+      "population": "177316",
+      "population_proper": "177316",
+      "id": "ebdf"
+    },
+    {
+      "city": "Riobamba",
+      "lat": "-1.6731",
+      "lng": "-78.6483",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Chimborazo",
+      "capital": "admin",
+      "population": "177213",
+      "population_proper": "177213",
+      "id": "d8a5"
+    },
+    {
+      "city": "Daule",
+      "lat": "-1.8667",
+      "lng": "-79.9833",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Guayas",
+      "capital": "",
+      "population": "161498",
+      "population_proper": "161498",
+      "id": "f525"
+    },
+    {
+      "city": "Milagro",
+      "lat": "-2.1347",
+      "lng": "-79.5872",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Guayas",
+      "capital": "",
+      "population": "159970",
+      "population_proper": "159970",
+      "id": "f513"
+    },
+    {
+      "city": "Ibarra",
+      "lat": "0.3627",
+      "lng": "-78.1307",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Imbabura",
+      "capital": "admin",
+      "population": "157941",
+      "population_proper": "157941",
+      "id": "2dbe"
+    },
+    {
+      "city": "Esmeraldas",
+      "lat": "0.9667",
+      "lng": "-79.6528",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Esmeraldas",
+      "capital": "admin",
+      "population": "155487",
+      "population_proper": "155487",
+      "id": "0ff8"
+    },
+    {
+      "city": "La Libertad",
+      "lat": "-2.2333",
+      "lng": "-80.9000",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Guayas",
+      "capital": "",
+      "population": "112154",
+      "population_proper": "112154",
+      "id": "87fb"
+    },
+    {
+      "city": "Babahoyo",
+      "lat": "-1.8167",
+      "lng": "-79.5167",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Los Ríos",
+      "capital": "admin",
+      "population": "98251",
+      "population_proper": "98251",
+      "id": "ce51"
+    },
+    {
+      "city": "Sangolquí",
+      "lat": "-0.3344",
+      "lng": "-78.4475",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Pichincha",
+      "capital": "",
+      "population": "96647",
+      "population_proper": "96647",
+      "id": "a97d"
+    },
+    {
+      "city": "Latacunga",
+      "lat": "-0.9319",
+      "lng": "-78.6161",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Cotopaxi",
+      "capital": "admin",
+      "population": "77267",
+      "population_proper": "77267",
+      "id": "60ea"
+    },
+    {
+      "city": "Pasaje",
+      "lat": "-3.3269",
+      "lng": "-79.8049",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "El Oro",
+      "capital": "",
+      "population": "60147",
+      "population_proper": "60147",
+      "id": "0ea5"
+    },
+    {
+      "city": "Santa Rosa",
+      "lat": "-3.4522",
+      "lng": "-79.9617",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "El Oro",
+      "capital": "",
+      "population": "56842",
+      "population_proper": "56842",
+      "id": "edd5"
+    },
+    {
+      "city": "Tulcán",
+      "lat": "0.8117",
+      "lng": "-77.7186",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Carchi",
+      "capital": "admin",
+      "population": "56719",
+      "population_proper": "56719",
+      "id": "4c84"
+    },
+    {
+      "city": "Huaquillas",
+      "lat": "-3.4814",
+      "lng": "-80.2432",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "El Oro",
+      "capital": "",
+      "population": "56021",
+      "population_proper": "56021",
+      "id": "d8cd"
+    },
+    {
+      "city": "Nueva Loja",
+      "lat": "0.0847",
+      "lng": "-76.8828",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Sucumbíos",
+      "capital": "admin",
+      "population": "55627",
+      "population_proper": "55627",
+      "id": "1cc8"
+    },
+    {
+      "city": "Santa Elena",
+      "lat": "-2.2267",
+      "lng": "-80.8583",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Santa Elena",
+      "capital": "admin",
+      "population": "54565",
+      "population_proper": "54565",
+      "id": "ec58"
+    },
+    {
+      "city": "Puerto Francisco de Orellana",
+      "lat": "-0.4625",
+      "lng": "-76.9842",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Orellana",
+      "capital": "admin",
+      "population": "51281",
+      "population_proper": "51281",
+      "id": "d48b"
+    },
+    {
+      "city": "Otavalo",
+      "lat": "0.2303",
+      "lng": "-78.2625",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Imbabura",
+      "capital": "",
+      "population": "41718",
+      "population_proper": "41718",
+      "id": "0b92"
+    },
+    {
+      "city": "La Troncal",
+      "lat": "-2.4000",
+      "lng": "-79.3300",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Cañar",
+      "capital": "",
+      "population": "39600",
+      "population_proper": "39600",
+      "id": "b44a"
+    },
+    {
+      "city": "Azogues",
+      "lat": "-2.7333",
+      "lng": "-78.8333",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Cañar",
+      "capital": "admin",
+      "population": "35763",
+      "population_proper": "35763",
+      "id": "37d2"
+    },
+    {
+      "city": "Salinas",
+      "lat": "-2.2167",
+      "lng": "-80.9501",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Guayas",
+      "capital": "",
+      "population": "35066",
+      "population_proper": "35066",
+      "id": "9d2e"
+    },
+    {
+      "city": "Puyo",
+      "lat": "-1.4861",
+      "lng": "-78.0028",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Pastaza",
+      "capital": "admin",
+      "population": "33325",
+      "population_proper": "33325",
+      "id": "01ff"
+    },
+    {
+      "city": "Guaranda",
+      "lat": "-1.6000",
+      "lng": "-79.0000",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Bolívar",
+      "capital": "admin",
+      "population": "30755",
+      "population_proper": "30755",
+      "id": "0562"
+    },
+    {
+      "city": "Tena",
+      "lat": "-0.9890",
+      "lng": "-77.8159",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Napo",
+      "capital": "admin",
+      "population": "29724",
+      "population_proper": "29724",
+      "id": "4d52"
+    },
+    {
+      "city": "Atuntaqui",
+      "lat": "0.3317",
+      "lng": "-78.2189",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Imbabura",
+      "capital": "",
+      "population": "25115",
+      "population_proper": "25115",
+      "id": "aefd"
+    },
+    {
+      "city": "Macas",
+      "lat": "-2.3667",
+      "lng": "-78.1333",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Morona-Santiago",
+      "capital": "admin",
+      "population": "22398",
+      "population_proper": "22398",
+      "id": "54ea"
+    },
+    {
+      "city": "Valle",
+      "lat": "-2.9500",
+      "lng": "-78.9833",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Azuay",
+      "capital": "",
+      "population": "18692",
+      "population_proper": "18692",
+      "id": "79d4"
+    },
+    {
+      "city": "Zamora",
+      "lat": "-4.0692",
+      "lng": "-78.9567",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Zamora-Chinchipe",
+      "capital": "admin",
+      "population": "17584",
+      "population_proper": "17584",
+      "id": "d583"
+    },
+    {
+      "city": "San Antonio de Ibarra",
+      "lat": "0.3627",
+      "lng": "-78.1307",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Imbabura",
+      "capital": "",
+      "population": "17500",
+      "population_proper": "17500",
+      "id": "f7fa"
+    },
+    {
+      "city": "Puerto Ayora",
+      "lat": "-0.7500",
+      "lng": "-90.3167",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Galápagos",
+      "capital": "",
+      "population": "12696",
+      "population_proper": "12696",
+      "id": "7b84"
+    },
+    {
+      "city": "Sinincay",
+      "lat": "-2.8333",
+      "lng": "-79.0000",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Azuay",
+      "capital": "",
+      "population": "12650",
+      "population_proper": "12650",
+      "id": "28f1"
+    },
+    {
+      "city": "Pelileo",
+      "lat": "-1.3306",
+      "lng": "-78.5428",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Tungurahua",
+      "capital": "",
+      "population": "11403",
+      "population_proper": "11403",
+      "id": "eeb8"
+    },
+    {
+      "city": "Zaruma",
+      "lat": "-3.6833",
+      "lng": "-79.6000",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "El Oro",
+      "capital": "",
+      "population": "10005",
+      "population_proper": "10005",
+      "id": "8e0b"
+    },
+    {
+      "city": "Saquisilí",
+      "lat": "-0.8300",
+      "lng": "-78.6700",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Cotopaxi",
+      "capital": "",
+      "population": "9883",
+      "population_proper": "9883",
+      "id": "da70"
+    },
+    {
+      "city": "Puerto Baquerizo Moreno",
+      "lat": "-0.9025",
+      "lng": "-89.6092",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Galápagos",
+      "capital": "admin",
+      "population": "7290",
+      "population_proper": "7290",
+      "id": "cc2e"
+    },
+    {
+      "city": "Chordeleg",
+      "lat": "-2.9333",
+      "lng": "-78.7667",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Azuay",
+      "capital": "",
+      "population": "6787",
+      "population_proper": "6787",
+      "id": "2590"
+    },
+    {
+      "city": "Llacao",
+      "lat": "-2.8378",
+      "lng": "-78.9423",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Azuay",
+      "capital": "",
+      "population": "4501",
+      "population_proper": "4501",
+      "id": "b248"
+    },
+    {
+      "city": "Cevallos",
+      "lat": "-1.3500",
+      "lng": "-78.6167",
+      "country": "Ecuador",
+      "iso2": "EC",
+      "admin_name": "Tungurahua",
+      "capital": "",
+      "population": "3754",
+      "population_proper": "3754",
+      "id": "9108"
+    }
+  ],
+  "respuestas": [
+    {
+      "reporteId": 1,
+      "funcionario": "Departamento de Alumbrado",
+      "mensaje": "Resuelto. Seguiremos informando",
+      "fecha": "2025-09-01",
+      "estado": "Resuelto",
+      "archivo": null,
+      "id": "1"
+    },
+    {
+      "reporteId": "3",
+      "funcionario": "Municipio",
+      "mensaje": "Listo, la basura está recogida",
+      "fecha": "2025-05-18",
+      "estado": "Resuelto",
+      "archivo": null,
+      "id": "3"
+    },
+    {
+      "id": "419a",
+      "reporteId": 3,
+      "funcionario": "ddddddddddddddddddddddd",
+      "mensaje": "dddddddddddddddddddddddd",
+      "fecha": "2025-05-18",
+      "estado": "Pendiente",
+      "archivo": null
+    },
+    {
+      "reporteId": "2",
+      "funcionario": "Municipio",
+      "mensaje": "Estamos revisando su problema.",
+      "fecha": "2025-05-19",
+      "estado": "En revisión",
+      "archivo": null,
+      "id": "8898"
+    }
+  ]
+}

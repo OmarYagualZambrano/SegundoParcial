@@ -1,0 +1,75 @@
+.container {
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .category-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+
+    mat-form-field {
+      width: 100%;
+    }
+
+    .color-input-field { // Para el input type="color"
+      width: 50px;
+      height: 30px;
+      padding: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+    .color-text-field { // Input de texto para el color
+      display: inline-block;
+      width: calc(100% - 60px); // Ajusta según el tamaño del color picker
+    }
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+  }
+
+  .category-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .mat-column-actions {
+    width: 120px; // Ajusta el ancho para los botones de acción
+    text-align: center;
+  }
+
+  .color-swatch {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 20px;
+    color: #757575;
+  }
+
+  // Asegura que los estilos sean homogéneos con Angular Material [cite: 37]
+  // Puedes definir variables de colores, fuentes, etc., en un archivo global de estilos
+  // y usarlas aquí para mantener la consistencia.
+
+  h1{
+  font-size: 1.875rem;   /* 30px */
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1rem;      /* 16px */
+  margin-bottom: 1rem;   /* 16px */
+}

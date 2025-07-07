@@ -1,0 +1,395 @@
+<!--VAMOS AGG UN MAT TABLE DE ANGULAR MATERIAL-->
+<div class="container-principal-zonas">
+  <h1 class="title-principal">MANEJO DE ZONAS</h1>
+
+  <div class="example-button-container"></div>
+  <div class="input-search">
+    <mat-form-field>
+      <mat-label>Ingrese ciudad</mat-label>
+      <input matInput [(ngModel)]="filtroCiudad" (input)="filtrarZona()" />
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="resetearFiltro()">
+      <mat-icon>delete</mat-icon>
+      Reset
+    </button>
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="abrirDialogoCrearZona()"
+      >
+        <mat-icon>add</mat-icon>
+        Nueva Zona
+      </button>
+    </div>
+  </div>
+  <div class="container-block">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
+
+        <!-- nombre Column -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+        </ng-container>
+
+        <!-- Ciudad Column -->
+        <ng-container matColumnDef="ciudad">
+          <th mat-header-cell *matHeaderCellDef>Ciudad</th>
+          <td mat-cell *matCellDef="let element">{{ element.ciudad }}</td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="ubicacion">
+          <th mat-header-cell *matHeaderCellDef>Ubicacion</th>
+          <td mat-cell *matCellDef="let element">{{ element.ubicacion }}</td>
+        </ng-container>
+
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <section>
+              <div class="example-button-row">
+                <div class="example-flex-container">
+                  <!--Para el boton editar-->
+                  <div class="example-button-container">
+                    <button
+                      mat-raised-button
+                      color="primary"
+                      (click)="editarZona(element)"
+                    >
+                      <mat-icon>edit</mat-icon>
+                      Editar
+                    </button>
+                  </div>
+                  <!--Boton eliminar-->
+                  <div class="example-button-container">
+                    <button
+                      mat-raised-button
+                      color="warn"
+                      (click)="eliminarZona(element)"
+                    >
+                      <mat-icon>delete</mat-icon>
+                      Eliminar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: displayedColumns"
+          (click)="seleccionarZona(row)"
+          [class.selected]="zonaSeleccionada?.id === row.id"
+        ></tr>
+      </table>
+
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Seleccione pagina de zonas"
+      >
+      </mat-paginator>
+    </div>
+    <div class="card-view" *ngIf="zonaSeleccionada">
+      <mat-card appearance="outlined">
+        <mat-card-header>
+          <h3 class="title-card">{{ zonaSeleccionada.ciudad }}</h3>
+        </mat-card-header>
+        <mat-card-content>
+          <p><strong>Ciudad:</strong> {{ zonaSeleccionada.nombre }}</p>
+
+          <div class="container-ubicacion-img">
+            <div class="iframe-map">
+              <iframe
+                width="300"
+                height="200"
+                [src]="getMapUrl(zonaSeleccionada.ubicacion)"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <div class="imagen-ubicacion">
+              <img
+                [src]="zonaSeleccionada.imagenUrl"
+                alt="Imagen de la zona"
+                width="250"
+                height="180"
+              />
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<ng-template #editarZonaDialog>
+  <h2 mat-dialog-title>Editar Zona</h2>
+
+  <mat-dialog-content
+    [formGroup]="zonaForm"
+    style="
+      display: flex;
+      gap: 20px;
+      max-height: 70vh;
+      overflow: auto;
+      padding: 0 10px;
+    "
+  >
+    <!-- Columna izquierda: Formulario -->
+    <div style="flex: 0 0 40%; min-width: 200px">
+      <!-- Nombre -->
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error
+          *ngIf="
+            zonaForm.get('nombre')?.hasError('required') &&
+            zonaForm.get('nombre')?.touched
+          "
+        >
+          El nombre es obligatorio
+        </mat-error>
+        <mat-error
+          *ngIf="
+            zonaForm.get('nombre')?.hasError('minlength') &&
+            zonaForm.get('nombre')?.touched
+          "
+        >
+          El nombre debe tener al menos 3 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Ciudad -->
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Ciudad</mat-label>
+        <input matInput formControlName="ciudad" readonly />
+      </mat-form-field>
+
+      <!-- Ubicación -->
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Ubicación (coordenadas)</mat-label>
+        <input matInput formControlName="ubicacion" readonly />
+      </mat-form-field>
+
+      <!-- Imagen URL -->
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Imagen URL</mat-label>
+        <input matInput formControlName="imagenUrl" />
+        <mat-error
+          *ngIf="
+            zonaForm.get('imagenUrl')?.hasError('required') &&
+            zonaForm.get('imagenUrl')?.touched
+          "
+        >
+          La URL de la imagen es obligatoria
+        </mat-error>
+        <mat-error
+          *ngIf="
+            zonaForm.get('imagenUrl')?.hasError('pattern') &&
+            zonaForm.get('imagenUrl')?.touched
+          "
+        >
+          Debe ser una URL válida que termine en .png, .jpg, .jpeg, .gif o .svg
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Columna derecha: Lista de provincias y ciudades -->
+    <div
+      style="
+        flex: 1;
+        min-width: 300px;
+        max-height: 600px;
+        overflow-y: auto;
+        border-left: 1px solid #ccc;
+        padding-left: 15px;
+      "
+    >
+      <p>Selecciona una ciudad para autocompletar ciudad y ubicación:</p>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let provincia of provincias">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{ provincia.nombre }}</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item
+              *ngFor="let ciudad of provincia.ciudades"
+              (click)="seleccionarCiudad(ciudad)"
+              style="cursor: pointer"
+            >
+              {{ ciudad.city }}
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" style="margin-top: 10px">
+    <button mat-button (click)="cerrarDialog()">Cancelar</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="guardarZona()"
+      [disabled]="zonaForm.invalid"
+    >
+      Guardar
+    </button>
+  </mat-dialog-actions>
+</ng-template>
+
+<ng-template #crearZonaDialog>
+  <h2 mat-dialog-title>Crear Nueva Zona</h2>
+  <mat-dialog-content
+    [formGroup]="zonaForm"
+    style="display: flex; gap: 20px; max-height: 60vh; overflow: auto"
+  >
+    <!-- Columna izquierda: Formulario -->
+    <div style="flex: 1; min-width: 200px">
+      <!-- Nombre -->
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error
+          *ngIf="
+            zonaForm.get('nombre')?.hasError('required') &&
+            zonaForm.get('nombre')?.touched
+          "
+        >
+          El nombre es obligatorio
+        </mat-error>
+        <mat-error
+          *ngIf="
+            zonaForm.get('nombre')?.hasError('minlength') &&
+            zonaForm.get('nombre')?.touched
+          "
+        >
+          El nombre debe tener al menos 3 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Ciudad -->
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Ciudad</mat-label>
+        <input matInput formControlName="ciudad" readonly />
+        <mat-error
+          *ngIf="
+            zonaForm.get('ciudad')?.hasError('required') &&
+            zonaForm.get('ciudad')?.touched
+          "
+        >
+          La ciudad es obligatoria
+        </mat-error>
+        <mat-error
+          *ngIf="
+            zonaForm.get('ciudad')?.hasError('minlength') &&
+            zonaForm.get('ciudad')?.touched
+          "
+        >
+          La ciudad debe tener al menos 2 caracteres
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Ubicación -->
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Ubicación (lat,lng)</mat-label>
+        <input matInput formControlName="ubicacion" readonly />
+        <mat-error
+          *ngIf="
+            zonaForm.get('ubicacion')?.hasError('required') &&
+            zonaForm.get('ubicacion')?.touched
+          "
+        >
+          La ubicación es obligatoria
+        </mat-error>
+        <mat-error
+          *ngIf="
+            zonaForm.get('ubicacion')?.hasError('pattern') &&
+            zonaForm.get('ubicacion')?.touched
+          "
+        >
+          La ubicación debe tener el formato latitud,longitud (ejemplo:
+          -2.12345,-79.12345)
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Imagen URL -->
+      <mat-form-field appearance="fill" style="width: 100%">
+        <mat-label>Imagen URL</mat-label>
+        <input matInput formControlName="imagenUrl" />
+        <mat-error
+          *ngIf="
+            zonaForm.get('imagenUrl')?.hasError('required') &&
+            zonaForm.get('imagenUrl')?.touched
+          "
+        >
+          La URL de la imagen es obligatoria
+        </mat-error>
+        <mat-error
+          *ngIf="
+            zonaForm.get('imagenUrl')?.hasError('pattern') &&
+            zonaForm.get('imagenUrl')?.touched
+          "
+        >
+          Debe ser una URL válida que termine en .png, .jpg, .jpeg, .gif o .svg
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <!-- Columna derecha: Lista de provincias y ciudades -->
+    <div
+      style="
+        flex: 1;
+        min-width: 300px;
+        max-height: 500px;
+        overflow-y: auto;
+        border-left: 1px solid #ccc;
+        padding-left: 10px;
+      "
+    >
+      <p>Selecciona una ciudad para autocompletar ciudad y ubicación:</p>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let provincia of provincias">
+          <mat-expansion-panel-header>
+            <mat-panel-title>{{ provincia.nombre }}</mat-panel-title>
+          </mat-expansion-panel-header>
+          <mat-list>
+            <mat-list-item
+              *ngFor="let ciudad of provincia.ciudades"
+              (click)="seleccionarCiudad(ciudad)"
+              style="cursor: pointer"
+            >
+              {{ ciudad.city }}
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="cerrarDialog()">Cancelar</button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="crearZona()"
+      [disabled]="zonaForm.invalid"
+    >
+      Guardar
+    </button>
+  </mat-dialog-actions>
+</ng-template>

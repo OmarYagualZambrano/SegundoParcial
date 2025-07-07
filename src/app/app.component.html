@@ -1,0 +1,45 @@
+<header class="header-flex" style="position: relative; padding: 24px 20px; background: #333; color: white;">
+  <h1 style="margin: 0; text-align: center; width: 100%;">
+    <a routerLink="/home" class="text-3xl font-bold" style="color: white; text-decoration: none;">Página de Reclamos</a>
+  </h1>
+  <div class="header-actions" style="position: absolute; right: 24px; bottom: 10px; min-width: 100px; display: flex; justify-content: flex-end; align-items: flex-end;">
+    <ng-container *ngIf="isLoggedIn(); else showLogin">
+      <button class="cerrar-sesion-btn" style="font-size: 0.9rem; padding: 4px 12px; min-width: 80px;" (click)="logout()">Cerrar sesión</button>
+    </ng-container>
+    <ng-template #showLogin>
+      <a routerLink="/login" class="cerrar-sesion-btn">Login</a>
+    </ng-template>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a routerLink="/home" routerLinkActive="active-link">Home</a></li>
+    <li><a routerLink="/foro" routerLinkActive="active-link">Foro</a></li>
+    <li>
+      <a routerLink="/zonas" routerLinkActive="active-link"
+        >Reportes por Zonas</a
+      >
+    </li>
+    <li><a routerLink="/usuario" routerLinkActive="active-link">Usuario</a></li>
+    <li>
+      <a routerLink="/categorias" routerLinkActive="active-link"
+        >Categorias de problemas</a
+      >
+    </li>
+    <li>
+      <a routerLink="/reportes" routerLinkActive="active-link"
+        >Reporte Problemas</a
+      >
+    </li>
+    <li>
+      <a routerLink="/respuestas" routerLinkActive="active-link"
+        >Respuestas a problemas</a
+      >
+    </li>
+  </ul>
+</nav>
+<main class="pb-10">
+  <router-outlet></router-outlet>
+</main>
+<footer class="z-50">Proyecto Primer Parcial, 2025</footer>

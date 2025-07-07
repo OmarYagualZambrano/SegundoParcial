@@ -1,0 +1,98 @@
+
+.title-principal{
+    text-align: center;
+}
+
+.container-principal-zonas{
+    width: 100%;
+    height: 100%;
+    padding: 40px 20px;
+    background-color: #a9aa8e85;
+
+}
+.container-principal-zonas > div{
+    padding: 5px 0px;
+}
+
+.container-block{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.mat-elevation-z8 {
+    flex: 3; /* hace que la tabla ocupe más espacio */
+    width: 100%;
+    padding-left: 15px;
+}
+
+.card-view {
+    flex: 1; /* la tarjeta ocupa menos espacio */
+    max-width: 400px; /* límite de tamaño */
+    padding-right: 15px;
+}
+
+.selected {
+    background-color: #caebf0 !important;
+}
+
+
+tr.mat-row:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.container-ubicacion-img{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.title-card{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+    margin: 0px;
+    background-color: #a9aa8e85;
+    text-transform: uppercase;
+}
+
+.example-flex-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+.example-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-search {
+    display: flex;
+    margin-left: 15px;
+}
+
+.input-search div{
+    margin-left: 100px;
+}
+.input-search button{
+    margin: 7px;
+}
+
+h1{
+  font-size: 1.875rem;   /* 30px */
+  font-weight: 700;
+  text-align: center;
+  margin-top: 1rem;      /* 16px */
+  margin-bottom: 1rem;   /* 16px */
+}

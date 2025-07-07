@@ -1,0 +1,156 @@
+<div class="main-container">
+  <!-- Sección de búsqueda -->
+  <div class="search-section">
+    <mat-form-field >
+      <mat-label>Buscar reportes</mat-label>
+      <input matInput #searchInput (keyup)="search(searchInput)" placeholder="Buscar...">
+    </mat-form-field>
+  </div>
+
+  <!-- Sección de tabla -->
+  <div class="table-section">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Columnas -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let item">{{item.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="titulo">
+        <th mat-header-cell *matHeaderCellDef>Título</th>
+        <td mat-cell *matCellDef="let item">{{item.titulo}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="categoria">
+        <th mat-header-cell *matHeaderCellDef>Categoría</th>
+        <td mat-cell *matCellDef="let item">{{item.categoria}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="funcionario">
+        <th mat-header-cell *matHeaderCellDef>Funcionario</th>
+        <td mat-cell *matCellDef="let item">
+          <span [ngClass]="!item.tieneRespuesta ? 'texto-placeholder' : ''">
+            {{ item.tieneRespuesta ? item.funcionario : '—' }}
+          </span>
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="mensaje">
+      <th mat-header-cell *matHeaderCellDef>Mensaje</th>
+      <td mat-cell *matCellDef="let item">
+        <span [ngClass]="!item.tieneRespuesta ? 'texto-placeholder' : ''">
+          {{ item.tieneRespuesta ? item.mensaje : 'Sin responder' }}
+        </span>
+      </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef>Estado</th>
+        <td mat-cell *matCellDef="let item">
+          <span class="estado-badge" [class]="item.estado.toLowerCase().replace(' ', '-')">
+            {{item.estado}}
+          </span>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef>Fecha</th>
+        <td mat-cell *matCellDef="let item">{{item.fecha | date:'shortDate'}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let item">
+          <button mat-icon-button color="primary"
+                  (click)="editarRespuesta(item)"
+                  matTooltip="Editar"
+                  [disabled]="!item.tieneRespuesta">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn"
+                  (click)="openEliminarModal(item.idRespuesta)"
+                  matTooltip="Eliminar"
+                  [disabled]="!item.tieneRespuesta">
+            <mat-icon>delete</mat-icon>
+          </button>
+
+          <button mat-icon-button color="accent"
+                  *ngIf="!item.tieneRespuesta"
+                  (click)="responderReporte(item)"
+                  matTooltip="Responder">
+            <mat-icon>reply</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                  [pageSize]="10"
+                  showFirstLastButtons>
+    </mat-paginator>
+  </div>
+
+  <div class="floating-form-container" *ngIf="showForm">
+    <div class="form-overlay" (click)="closeForm()"></div>
+    <div class="floating-form mat-elevation-z10 form-section">
+      <button mat-icon-button class="close-btn" (click)="closeForm()">
+        <mat-icon>close</mat-icon>
+      </button>
+
+      <h3>{{ isEditMode ? 'Editar Respuesta' : 'Agregar Respuesta' }}</h3>
+
+      <form [formGroup]="form" (submit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Funcionario</mat-label>
+          <input matInput formControlName="funcionario" required>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Mensaje</mat-label>
+          <textarea matInput formControlName="mensaje" rows="3" required></textarea>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="estado" required>
+            <mat-option value="Pendiente">Pendiente</mat-option>
+            <mat-option value="En revisión">En revisión</mat-option>
+            <mat-option value="Resuelto">Resuelto</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <div class="form-actions">
+          <button mat-raised-button color="primary" type="submit">
+            {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+          </button>
+          <button mat-raised-button type="button" (click)="closeForm()">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="esFuncionario; else noAutorizado">
+    <!-- aquí está para el login -->
+</div>
+
+<ng-template #noAutorizado>
+  <p class="texto-placeholder">No tienes permisos para ver esta información.</p>
+</ng-template>
+
+<app-vtn-modal
+  [isOpen]="isModalOpen"
+  [title]="'¿Estás seguro?'"
+  [description]="'Esta acción eliminará la respuesta permanentemente.'"
+  [cancelar]="'Cancelar'"
+  [aceptar]="'Eliminar'"
+  (onCancelar)="cerrarModal()"
+  (onAceptar)="confirmarAccion()"
+>
+  ¿Deseas eliminar la respuesta del funcionario <strong>{{ respuestaAEliminar?.funcionario }}</strong>?
+</app-vtn-modal>
