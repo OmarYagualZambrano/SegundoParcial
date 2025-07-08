@@ -28,7 +28,7 @@ export class ServUsuarioService {
           (usuario) =>
             (nombre
               ? usuario.nombre.toLowerCase().includes(nombre.toLowerCase())
-              : true) || //this works :D
+              : true) || 
             (nombre
               ? usuario.apellido.toLowerCase().includes(nombre.toLowerCase())
               : true)
