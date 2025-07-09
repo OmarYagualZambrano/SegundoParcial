@@ -3,7 +3,7 @@ export interface Usuario {
   nombre: string;
   apellido: string;
   cedula: number;
-  usuario: string;
+  usuario1: string;
   tipo_usuario: string;
   genero: string;
   direccion: string;

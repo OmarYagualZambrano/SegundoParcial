@@ -40,14 +40,14 @@ export class LoginComponent {
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      usuario: [''],
+      usuario1: [''],
       contraseña: ['']
     });
     this.registerForm = this.fb.group({
     nombre: [''],
     apellido: [''],
     cedula: [''],
-    usuario: [''],
+    usuario1: [''],
     tipo_usuario: [''],
     genero: [''],
     direccion: [''],
@@ -68,9 +68,9 @@ export class LoginComponent {
 };
 
   login() {
-  const { usuario, contraseña } = this.loginForm.value;
+  const { usuario1, contraseña } = this.loginForm.value;
   const user = this.usuarios.find(
-    u => u.usuario === usuario && u.contrasenia === contraseña
+    u => u.usuario1 === usuario1 && u.contrasenia === contraseña
   );
   if (user) {
     this.errorMessage = '';
