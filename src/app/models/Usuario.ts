@@ -1,8 +1,8 @@
 export interface Usuario {
-  id: number;
+  id: string;
   nombre: string;
   apellido: string;
-  cedula: number;
+  cedula: string;
   usuario1: string;
   tipo_usuario: string;
   genero: string;

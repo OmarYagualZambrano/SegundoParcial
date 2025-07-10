@@ -7,13 +7,14 @@ import { Observable, map } from 'rxjs';
   providedIn: 'root'
 })
 export class ServUsuarioService {
-  private url = 'http://localhost:3000/usuario';
+  private url = 'https://localhost:7241/api/usuarios';
 
   constructor(private httpcliente: HttpClient) {}
-
+//GET
   getUsuarios(): Observable<Usuario[]> {
     return this.httpcliente.get<Usuario[]>(this.url);
   }
+  
   editUsuarios(usuario: Usuario): Observable<Usuario> {
     let urlUsuario = `${this.url}/${usuario.id}`;
     return this.httpcliente.put<Usuario>(urlUsuario, usuario);

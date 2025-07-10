@@ -61,7 +61,7 @@ export class LoginComponent {
     this.errorMessage = '';
   }
   cargarUsuarios() {
-  this.http.get<Usuario[]>('http://localhost:3000/usuario').subscribe((data) => {
+  this.http.get<Usuario[]>('https://localhost:7241/api/usuarios').subscribe((data) => {
     this.usuarios = data;
   });
 
@@ -91,7 +91,7 @@ export class LoginComponent {
     return;
   }
   const nuevoUsuario = this.registerForm.value;
-  this.http.post<Usuario>('http://localhost:3000/usuario', nuevoUsuario)
+  this.http.post<Usuario>('https://localhost:7241/api/usuarios', nuevoUsuario)
     .subscribe({
       next: (usuario) => {
         alert('¡Usuario registrado exitosamente!');

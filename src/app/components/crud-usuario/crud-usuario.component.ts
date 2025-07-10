@@ -180,7 +180,7 @@ confirmarEliminar() {
   // Prepara el formulario para editar una película
   editar(usu: Usuario) {
     this.isEditMode = true; // Activa modo edición
-    this.currentId = usu.id; // Guarda el ID
+    this.currentId = Number(usu.id); // Guarda el ID
 
     // Llena el formulario con los datos de la película
     this.form.setValue({
@@ -222,7 +222,7 @@ confirmarEliminar() {
 
     if (this.isEditMode) {
       // Modo edición: actualiza usuario existente
-      UsuarioGuardar.id = this.currentId;
+      UsuarioGuardar.id = this.currentId.toString();
 
       this.usuarioService
         .editUsuarios(UsuarioGuardar)
