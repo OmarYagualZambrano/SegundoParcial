@@ -142,13 +142,17 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
 
 
 
-  cargarUsuarios():void {
-    this.usuarioService.getUsuarios().subscribe((data:Usuario[]) => {
+  cargarUsuarios(): void {
+    this.usuarioService.getUsuarios().subscribe((data: Usuario[]) => {
       this.dataSource.data = data;
-
-
+      
+      // Añade esto para llenar los datos del usuario logueado
+      if (this.tipoUsuario === 'ciudadano' && this.authService.getUsername()) {
+        const username = this.authService.getUsername();
+        this.usuarioLogueado = data.find(u => u.usuario1 === username) || null;
+      }
     });
-  }
+}
   // Búsqueda de Usuario
   search(cajaTexto: HTMLInputElement) {
     if (cajaTexto.value) {
@@ -175,7 +179,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
 }
 confirmarEliminar() {
   if (!this.usuarioAEliminar) return;
-  this.usuarioService.deleteUsuario(this.usuarioAEliminar).subscribe({
+  this.usuarioService.deactivateUsuario(this.usuarioAEliminar).subscribe({
     next: () => {
       alert('El usuario ha sido eliminado correctamente.');
       this.cargarUsuarios();
