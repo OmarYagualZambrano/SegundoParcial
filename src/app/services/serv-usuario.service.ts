@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Usuario } from '../models/Usuario';
+import { Usuario, UsuarioCreateDto } from '../models/Usuario';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -19,9 +19,11 @@ export class ServUsuarioService {
     let urlUsuario = `${this.url}/${usuario.id}`;
     return this.httpcliente.put<Usuario>(urlUsuario, usuario);
   }
-  addUsuarios(usuario: Usuario): Observable<Usuario> {
+  //Editado usando el Dto
+  addUsuarios(usuario: Usuario): Observable<Usuario> {   
     return this.httpcliente.post<Usuario>(this.url, usuario);
   }
+  
   getUsuarioSearch(nombre?: string): Observable<Usuario[]> {
     return this.httpcliente.get<Usuario[]>(this.url).pipe(
       map((usuario) =>
@@ -44,4 +46,7 @@ export class ServUsuarioService {
     return this.httpcliente.delete<void>(urlUsuario);
   }
 
+  getUsuarioById(id: string): Observable<Usuario> {
+  return this.httpcliente.get<Usuario>(`${this.url}/${id}`);
+}
 }

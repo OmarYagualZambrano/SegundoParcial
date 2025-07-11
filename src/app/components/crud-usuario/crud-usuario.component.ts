@@ -16,7 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field'; // Para campo
 import { MatSelectModule } from '@angular/material/select'; // Para selectores
 import { MatListModule } from '@angular/material/list';
 import { VtnModalComponent } from "../../shared/vtn-modal/vtn-modal.component";
-
+import { UsuarioAuthService } from '../../services/usuario-auth.service';
 
 @Component({
   selector: 'app-crud-usuario',
@@ -49,7 +49,7 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   modalEditarAbierto = false;
   usuarioAEditar: any = null;
 
-  // ID de la película actualmente en edición
+  // ID de la usuario actualmente en edición
    currentId!: number;
 
   // Columnas a mostrar en la tabla
@@ -89,7 +89,8 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
   constructor(
     private usuarioService: ServUsuarioService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: UsuarioAuthService
     ) {}
 
   // Método del ciclo de vida: inicialización del componente
@@ -110,17 +111,30 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
       contrasenia: ['', [Validators.required, Validators.minLength(6)]]
     });
 
-    const usuarioStorage = localStorage.getItem('usuarioLogueado');
-    if (usuarioStorage) {
-      this.usuarioLogueado = JSON.parse(usuarioStorage);
-      this.tipoUsuario = this.usuarioLogueado?.tipo_usuario || null;
+    // Obtener el rol del token JWT
+    const jwtRole = this.authService.getUserRole();
+    
+    // Mapear el rol del JWT a los tipos de usuario de tu sistema
+    this.tipoUsuario = jwtRole === 'Admin' ? 'funcionario' : 'ciudadano';
+    // Verificación de consola para debug
+    console.log('Rol del JWT:', jwtRole);
+    console.log('tipoUsuario asignado:', this.tipoUsuario);
 
-      if (!this.tipoUsuario) {
-        this.router.navigate(['/login']);
-      }
-    } else {
-      this.router.navigate(['/login']);
-    }
+    // Si necesitas los datos del usuario, puedes obtenerlos del token
+    // Datos básicos del usuario desde el token
+    this.usuarioLogueado = {
+      nombre: '', // Estos se pueden completar con una llamada API si es necesario
+      apellido: '',
+      cedula: '',
+      usuario1: this.authService.getUsername() || '',
+      tipo_usuario: this.tipoUsuario, // Usamos el tipo mapeado
+      genero: '',
+      direccion: '',
+      contrasenia: '',
+      id: this.authService.getUserId() || ''
+    };
+  
+  
 }
 
 

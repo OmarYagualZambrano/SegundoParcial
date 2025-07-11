@@ -9,9 +9,11 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Usuario } from '../../models/Usuario';
 import { Router } from '@angular/router';
+import { UsuarioAuthService } from '../../services/usuario-auth.service'; 
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [
     CommonModule,
     MatCardModule,
@@ -37,7 +39,9 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authService: UsuarioAuthService // Inyecta el servicio de autenticación
+
   ) {
     this.loginForm = this.fb.group({
       usuario1: [''],
@@ -67,30 +71,33 @@ export class LoginComponent {
 
 };
 
-  login() {
-  const { usuario1, contraseña } = this.loginForm.value;
-  const user = this.usuarios.find(
-    u => u.usuario1 === usuario1 && u.contrasenia === contraseña
-  );
-  if (user) {
-    this.errorMessage = '';
-    // Guarda el usuario y tipo en localStorage
-    localStorage.setItem('usuarioLogueado', JSON.stringify(user));
-    alert('¡Login exitoso!');
-    this.router.navigate(['/usuario']);
-    // Aquí puedes redirigir a la ruta del CRUD, por ejemplo:
-    // this.router.navigate(['/crud-usuario']);
-  } else {
-    this.errorMessage = 'Usuario o contraseña incorrectos';
+   login() {
+    const { usuario1, contraseña } = this.loginForm.value;
+    
+    
+    this.authService.login(usuario1, contraseña).subscribe({
+      next: (res) => {
+        this.errorMessage = '';
+        alert('¡Login exitoso!');
+        this.router.navigate(['/usuario']);
+      },
+      error: (err) => {
+        this.errorMessage = 'Usuario o contraseña incorrectos';
+      }
+    });
   }
-}
 
   register() {
   if (this.registerForm.invalid) {
     alert('Por favor, complete todos los campos.');
     return;
   }
-  const nuevoUsuario = this.registerForm.value;
+  const nuevoUsuario = {
+    ...this.registerForm.value,
+    id: this.generateUserId() 
+  
+  };
+ 
   this.http.post<Usuario>('https://localhost:7241/api/usuarios', nuevoUsuario)
     .subscribe({
       next: (usuario) => {
@@ -110,4 +117,8 @@ export class LoginComponent {
     event.preventDefault();
     this.router.navigate(['/home']);
   }
+   // Genera un ID de 10 caracteres alfanuméricos
+  private generateUserId(): string {
+  return Math.random().toString(36).substring(2, 12);
+}
 }
