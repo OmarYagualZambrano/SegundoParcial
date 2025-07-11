@@ -179,7 +179,8 @@ export class CrudUsuarioComponent implements OnInit, AfterViewInit{
 }
 confirmarEliminar() {
   if (!this.usuarioAEliminar) return;
-  this.usuarioService.deactivateUsuario(this.usuarioAEliminar).subscribe({
+
+  this.usuarioService.deleteUsuario(this.usuarioAEliminar).subscribe({
     next: () => {
       alert('El usuario ha sido eliminado correctamente.');
       this.cargarUsuarios();
